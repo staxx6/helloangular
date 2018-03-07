@@ -1,4 +1,4 @@
-import { Flight } from './flight';
+import { Flight, ScheduledFlight, CharterFlight } from './flight';
 
 export class FlightManager {
   //private cache: Flight[];
@@ -7,6 +7,20 @@ export class FlightManager {
     private cache: Flight[]
   ) {
     //this.cache = cache; ^- suger
+
+    let sf: Flight = new ScheduledFlight();
+    sf.distance = 1000;
+
+    let cf: Flight = new CharterFlight();
+    cf.distance = 1000;
+
+    let flights: Flight[] = [sf, cf];
+
+    for(let f of flights) {
+      if(f.calcPrice) {
+        console.log('Preis', f.calcPrice());
+      }
+    }
   }
 
   search(from: string, to: string): Flight[] {
