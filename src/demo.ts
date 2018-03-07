@@ -34,3 +34,6 @@ let result1 = fm.search('gaz', 'hamburg');
 for(let f of result1) {
   console.log('flight', f);
 }
+
+
+// --------------------------------------------------

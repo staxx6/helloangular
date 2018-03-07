@@ -18,4 +18,24 @@ export class FlightManager {
     }
     return result;
   }
+
+  // use filter
+  search2(from: string,  to: string): Flight[] {
+    let result: Flight[] = this.cache.filter(function(f: Flight) {
+      return f.from === from && f.to === to;
+    });
+    return result;
+  }
+
+  // lambda
+  search3(from: string, to: string): Flight[] {
+    return this.cache.filter((f:Flight) => {
+      return f.from === from && f.to === to;
+    });
+  }
+
+  // more lambda
+  search4(from: string, to: string): Flight[] {
+    return this.cache.filter(f => f.from === from && f.to === to);
+  }
 }
